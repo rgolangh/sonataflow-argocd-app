@@ -9,4 +9,6 @@ metadata:
     sonataflow.org/profile: dev
 spec:
   flow:
-
+   start: foo
+   state:
+     name: foo
