@@ -1,0 +1,10 @@
+iapiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: greeting-1
+  name: greeting-1-props
+data:
+  application.properties: |
+    my.properties.key = any-value
+
