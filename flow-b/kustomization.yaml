@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - sonataflow.yaml
+  - configmap.yaml
+configMapGenerator:
+  - name: openapi-specs-b
+    files:
+      - specs/simple-service.json

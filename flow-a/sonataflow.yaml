@@ -2,7 +2,7 @@
 apiVersion: sonataflow.org/v1alpha08
 kind: SonataFlow
 metadata:
-  name: greeting-1
+  name: greeting-a
   annotations:
     sonataflow.org/description: Greeting example on k8s!
     sonataflow.org/version: 0.0.2
@@ -12,4 +12,9 @@ spec:
    start: foo
    state:
      name: foo
+     end: true
+  resources:
+    configMaps:
+      - configMap: configmap
+        workflowPath: specs
 
