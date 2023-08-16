@@ -5,7 +5,7 @@ metadata:
   name: greeting-b
   annotations:
     sonataflow.org/description: Greeting example on k8s!
-    sonataflow.org/version: 0.0.2
+    sonataflow.org/version: 0.0.3
 spec:
   flow:
    start: foo
