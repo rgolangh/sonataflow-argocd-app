@@ -5,9 +5,9 @@ Structure:
 kustomiztion.yaml        // the base kustomization yaml
 flow-x:                  // per-flow directory
   sonataflow.yaml        // sonataflow CR
-  configmap.yaml         // the sonataflow configmap (the target quarkus application.properties)
+  configMap.yaml         // the sonataflow's configMap (the target quarkus application.properties)
   specs/                 // specs dirs for openapi specs
-    foo.json             // some service's open-api spec
+    svc-openapi.yaml     // some service's open-api spec
   kustomization.yaml     // per-flow kustomization
 ```
 

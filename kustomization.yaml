@@ -1,5 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+commonAnnotations:
+  sonataflow.org/profile: dev
 resources:
   - flow-a
   - flow-b
+# this doesn't work. need to set it in the each dir?
+generatorOptions:
+  disableNameSuffixHash: true

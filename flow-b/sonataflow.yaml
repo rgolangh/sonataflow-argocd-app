@@ -6,14 +6,17 @@ metadata:
   annotations:
     sonataflow.org/description: Greeting example on k8s!
     sonataflow.org/version: 0.0.2
-    sonataflow.org/profile: dev
 spec:
   flow:
    start: foo
+   functions:
+     name: sayhello
+     operation: specs/simple-service.json#hello
    state:
      name: foo
      end: true
-resources:
+  resources:
     configMaps:
-      - configMap: configmap
+      - configMap: openapi-specs-b
         workflowPath: specs
+
