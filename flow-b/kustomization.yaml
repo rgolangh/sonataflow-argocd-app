@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
   - sonataflow.yaml
   - configMap.yaml
+configurations:
+  - nameReference.yaml
 configMapGenerator:
   - name: openapi-specs-b
     files:

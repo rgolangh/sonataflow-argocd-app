@@ -1,0 +1,5 @@
+nameReference:
+  - kind: ConfigMap 
+    fieldSpecs:
+      - kind: SonataFlow 
+        path: spec/resources/configMaps/configMap/name

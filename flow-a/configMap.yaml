@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   labels:
     app: greeting-a
-  name: greeting-a
+  name: greeting-a-props
 data:
   application.properties: |
     quarkus.rest-client.simple_service_yaml.url=http://simple.default.svc.cluster.local
