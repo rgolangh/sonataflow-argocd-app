@@ -1,0 +1,40 @@
+---
+openapi: 3.0.3
+info:
+  title: getting-started API
+  version: 1.0.0-SNAPSHOT
+paths:
+  /hello:
+    get:
+      tags:
+      - Greeting Resource
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+  /hello/greeting/{name}:
+    get:
+      tags:
+      - Greeting Resource
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+components:
+  securitySchemes:
+    SecurityScheme:
+      type: http
+      description: Authentication
+      scheme: basic

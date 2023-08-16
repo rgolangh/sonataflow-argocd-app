@@ -9,4 +9,4 @@ configurations:
 configMapGenerator:
   - name: openapi-specs-a
     files:
-      - specs/simple-service.json
+      - specs/simple-service.yaml
