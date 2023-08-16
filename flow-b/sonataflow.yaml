@@ -10,13 +10,14 @@ spec:
   flow:
    start: foo
    functions:
-     name: sayhello
-     operation: specs/simple-service.json#hello
-   state:
-     name: foo
-     end: true
+     - name: sayhello
+       operation: specs/simple-service.json#hello
+   states:
+     - name: foo
+       end: true
   resources:
     configMaps:
-      - configMap: openapi-specs-b
+      - configMap:
+          name: openapi-specs-b
         workflowPath: specs
 
