@@ -8,6 +8,7 @@ paths:
     get:
       tags:
       - Greeting Resource
+      operationId: hello
       responses:
         "200":
           description: OK
@@ -19,6 +20,7 @@ paths:
     get:
       tags:
       - Greeting Resource
+      operationId: greeting
       parameters:
       - name: name
         in: path
