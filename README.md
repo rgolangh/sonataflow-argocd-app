@@ -16,4 +16,22 @@ Run kustomize to get all the manifests:
 kustomize build .
 ```
 
-Deploy this on a cluster using by kubectl apply or with with an argocd application from this directory.
+Deploy using kustomize only:
+```
+kusttomize build . | kubectl apply -f -`
+```
+
+Or argocd application for a more managed approach:
+```
+argocd app create workflows --repo https://github.com/rgolangh/sonataflow-argocd-app --path ./ --dest-server https://kubernetes.default.svc --dest-namespace workflows 
+
+argocd sync workflows 
+```
+
+Expose the flows to interact with them incase you deploy on `kind` or any other luster lacking ingress capability:
+```
+kubectl port-forward -n workflows svc/greeting-a 8080:80 &
+```
+
+
+

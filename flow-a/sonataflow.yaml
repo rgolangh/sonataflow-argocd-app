@@ -8,7 +8,7 @@ metadata:
     sonataflow.org/version: 0.0.5
 spec:
   flow:
-   start: say-hello 
+   start: say-hello
    functions:
      - name: sayhello
        operation: specs/simple-service.yaml#hello
@@ -16,7 +16,7 @@ spec:
      - name: say-hello
        type: operation
        actions:
-         - name: sayhello 
+         - functionRef: sayhello
        end: true
   resources:
     configMaps:
