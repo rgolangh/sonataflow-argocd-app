@@ -5,9 +5,9 @@ metadata:
   name: greeting-b
   annotations:
     sonataflow.org/description: Greeting example on k8s!
-    sonataflow.org/version: 0.0.4
 spec:
   flow:
+   version: 0.0.3
    start: say-hello
    functions:
      - name: sayhello
