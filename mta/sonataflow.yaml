@@ -9,6 +9,9 @@ metadata:
 spec:
   flow:
    start: say-hello
+   dataInputSchema:
+     schema: specs/mta-schema.json
+     failOnValidationErrors: true
    functions:
      - name: sayhello
        operation: specs/simple-service.yaml#hello

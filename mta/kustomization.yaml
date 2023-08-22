@@ -10,3 +10,4 @@ configMapGenerator:
   - name: openapi-specs-a
     files:
       - specs/simple-service.yaml
+      - specs/mta-schema.json
