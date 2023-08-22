@@ -11,7 +11,7 @@ flow-x:                  // per-flow directory
   kustomization.yaml     // per-flow kustomization
 ```
 
-## Pre-requisites
+## Prerequisites
 A k8s cluster, I used kind with podman.
 And sonata serverless operator:
 ```
@@ -20,13 +20,13 @@ kubectl create -f https://raw.githubusercontent.com/kiegroup/kogito-serverless-o
 
 ## From git to deployed workflows
 
-* **namespace**
+* **Namespace:**
 Create the 'workflows' namespace:
 ```
 kubectl create namespace workflows
 ```
 
-* **kustomize usage**
+* **Kustomize usage:**
 Run kustomize to get all the manifests:
 ```
 kustomize build .
@@ -37,21 +37,21 @@ Deploy using kustomize only:
 kustomize build . | kubectl apply -f - --namespace workflows
 ```
 
-* **argocd usage**
-Or argocd application for a more managed approach:
+* **Argocd Usage:**
+Alternatively use argocd application for a more managed approach:
 ```
 argocd app create workflows --repo https://github.com/rgolangh/sonataflow-argocd-app --path ./ --dest-server https://kubernetes.default.svc --dest-namespace workflows 
 
 argocd app sync workflows 
 ```
 
-* **automated sync**
+* **Automated Sync:**
 To avoid manual syncs, tweak the app sync policy:
 ```
 argocd app set workflows --sync-policy automated
 ```
 
-* **invoke a workflow**
+* **Invoke a workflow:**
 Expose the flows to interact with them incase you deploy on `kind` or any other luster lacking ingress capability:
 ```
 kubectl port-forward -n workflows svc/mta 8080:80 &
