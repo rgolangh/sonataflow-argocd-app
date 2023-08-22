@@ -2,10 +2,10 @@
 apiVersion: sonataflow.org/v1alpha08
 kind: SonataFlow
 metadata:
-  name: greeting-a
+  name: move2kube
   annotations:
-    sonataflow.org/description: Greeting example on k8s!
-    sonataflow.org/version: 0.0.5
+    sonataflow.org/description: Move to Kube workflow - workload modernization
+    sonataflow.org/version: 0.0.6
 spec:
   flow:
    start: say-hello
@@ -21,6 +21,6 @@ spec:
   resources:
     configMaps:
       - configMap:
-          name: openapi-specs-a
+          name: openapi-specs-b
         workflowPath: specs
 

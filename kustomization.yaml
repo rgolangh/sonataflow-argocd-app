@@ -3,8 +3,8 @@ kind: Kustomization
 commonAnnotations:
   sonataflow.org/profile: dev
 resources:
-  - flow-a
-  - flow-b
+  - mta
+  - move2kube
 # this doesn't work. need to set it in the each dir?
 generatorOptions:
   disableNameSuffixHash: true

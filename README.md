@@ -25,12 +25,14 @@ Or argocd application for a more managed approach:
 ```
 argocd app create workflows --repo https://github.com/rgolangh/sonataflow-argocd-app --path ./ --dest-server https://kubernetes.default.svc --dest-namespace workflows 
 
-argocd sync workflows 
+argocd app sync workflows 
 ```
 
 Expose the flows to interact with them incase you deploy on `kind` or any other luster lacking ingress capability:
 ```
-kubectl port-forward -n workflows svc/greeting-a 8080:80 &
+kubectl port-forward -n workflows svc/mta 8080:80 &
+
+curl localhost:8080/mta -d '{"foo":"bar"}' -H "Content-Type: application/json"
 ```
 
 
