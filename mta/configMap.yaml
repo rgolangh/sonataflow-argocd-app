@@ -6,6 +6,6 @@ metadata:
   name: mta-props
 data:
   application.properties: |
-    quarkus.rest-client.simple_service_yaml.url=http://simple.default.svc.cluster.local
+    quarkus.rest-client.simple_service_yaml.url=http://10.201.132.86:8181
 
 
