@@ -1,6 +1,6 @@
 This repo demonstrates maintaing multi serverless workflow definitions, using kustomize and possibly adding argocd
 
-Structure:
+## Structure:
 ```
 kustomiztion.yaml        // the base kustomization yaml
 flow-x:                  // per-flow directory
@@ -11,11 +11,22 @@ flow-x:                  // per-flow directory
   kustomization.yaml     // per-flow kustomization
 ```
 
+## Pre-requisites
+A k8s cluster, I used kind with podman.
+And sonata serverless operator:
+```
+kubectl create -f https://raw.githubusercontent.com/kiegroup/kogito-serverless-operator/v1.42.0/operator.yaml
+```
+
+## From git to deployed workflows
+
+* **namespace**
 Create the 'workflows' namespace:
 ```
 kubectl create namespace workflows
 ```
 
+* **kustomize usage**
 Run kustomize to get all the manifests:
 ```
 kustomize build .
@@ -23,9 +34,10 @@ kustomize build .
 
 Deploy using kustomize only:
 ```
-kusttomize build . | kubectl apply -f -` --namespace workflows
+kustomize build . | kubectl apply -f - --namespace workflows
 ```
 
+* **argocd usage**
 Or argocd application for a more managed approach:
 ```
 argocd app create workflows --repo https://github.com/rgolangh/sonataflow-argocd-app --path ./ --dest-server https://kubernetes.default.svc --dest-namespace workflows 
@@ -33,11 +45,13 @@ argocd app create workflows --repo https://github.com/rgolangh/sonataflow-argocd
 argocd app sync workflows 
 ```
 
+* **automated sync**
 To avoid manual syncs, tweak the app sync policy:
 ```
 argocd app set workflows --sync-policy automated
 ```
 
+* **invoke a workflow**
 Expose the flows to interact with them incase you deploy on `kind` or any other luster lacking ingress capability:
 ```
 kubectl port-forward -n workflows svc/mta 8080:80 &
