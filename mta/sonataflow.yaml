@@ -17,6 +17,11 @@ spec:
        type: operation
        actions:
          - functionRef: sayhello
+       transition: inject
+     - name: inject
+       type: inject
+       data:
+         analysis: MTA analysis done
        end: true
   resources:
     configMaps:
