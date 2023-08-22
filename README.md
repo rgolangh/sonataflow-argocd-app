@@ -33,6 +33,11 @@ argocd app create workflows --repo https://github.com/rgolangh/sonataflow-argocd
 argocd app sync workflows 
 ```
 
+To avoid manual syncs, tweak the app sync policy:
+```
+argocd app set workflows --sync-policy automated
+```
+
 Expose the flows to interact with them incase you deploy on `kind` or any other luster lacking ingress capability:
 ```
 kubectl port-forward -n workflows svc/mta 8080:80 &
