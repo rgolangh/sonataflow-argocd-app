@@ -15,9 +15,11 @@ spec:
       - "workflow-type/infrastructure"
     version: 1.0v
     timeouts:
-      workflowExecTimeout: PT1H
+      workflowExecTimeout:
+        duration: PT1H
     start: Head
-    dataInputSchema: mta-schema.json
+    dataInputSchema:
+      duration: mta-schema.json
     functions:
       - name: debug
         type: custom
